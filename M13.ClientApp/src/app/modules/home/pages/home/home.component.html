@@ -1,0 +1,45 @@
+<div class="home-page">
+  <form (ngSubmit)="addRule()">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Добавление правила</span>
+      </div>
+      <input placeholder="сайт (yandex.ru)" type="text" [formControl]="siteAddControl" class="form-control">
+      <input placeholder="правило (//ol)" type="text" [formControl]="ruleAddControl" class="form-control">
+      <button type="submit" class="btn btn-primary">Добавить</button>
+    </div>
+  </form>
+  <br>
+  <form (ngSubmit)="getRule()">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Получить правило</span>
+      </div>
+      <input placeholder="сайт (yandex.ru)" type="text" [formControl]="siteGetControl" class="form-control">
+      <button type="submit" class="btn btn-primary">Получить</button>
+    </div>
+    <small *ngIf="ruleGetModel" class="form-text text-muted">Результат: {{ruleGetModel.rule}}</small>
+  </form>
+  <br>
+  <form (ngSubmit)="deleteRule()">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Удалить</span>
+      </div>
+      <input placeholder="сайт (yandex.ru)" type="text" [formControl]="siteDeleteControl" class="form-control">
+      <button type="submit" class="btn btn-primary">Удалить</button>
+    </div>
+  </form>
+  <br>
+  <form (ngSubmit)="testRule()">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Тестирование</span>
+      </div>
+      <input placeholder="сайт (yandex.ru)" type="text" [formControl]="siteTestControl" class="form-control">
+      <input placeholder="правило (//ol)" type="text" [formControl]="ruleTestControl" class="form-control">
+      <button type="submit" class="btn btn-primary">Протестировать</button>
+    </div>
+    <textarea *ngIf="testText" class="form-control" value="{{testText}}" rows="8"></textarea>
+  </form>
+</div>

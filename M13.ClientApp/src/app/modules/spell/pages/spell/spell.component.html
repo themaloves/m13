@@ -1,0 +1,25 @@
+<div class="home-page">
+  <form (ngSubmit)="errors()">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Поиск ошибок в тексте</span>
+      </div>
+      <input placeholder="сайт (yandex.ru)" type="text" [formControl]="spellErrorsControl" class="form-control">
+      <button type="submit" class="btn btn-primary">Найти</button>
+    </div>
+    <li *ngFor="let error of errorsResult">
+      {{error}}
+    </li>
+  </form>
+  <br>
+  <form (ngSubmit)="errorsCount()">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Поиск ошибок в тексте</span>
+      </div>
+      <input placeholder="сайт (yandex.ru)" type="text" [formControl]="spellErrorsCountControl" class="form-control">
+      <button type="submit" class="btn btn-primary">Получить кол-во ошибок </button>
+    </div>
+    <small *ngIf="errorsResultCount" class="form-text text-muted">Результат: {{errorsResultCount}}</small>
+  </form>
+</div>  
